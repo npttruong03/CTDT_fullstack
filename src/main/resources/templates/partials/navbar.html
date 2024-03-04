@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Việt Hàn</title>
+		<!-- base:css -->
+		<link rel="stylesheet" type="text/css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+		<link rel="stylesheet" th:href="@{/vendors/mdi/css/materialdesignicons.min.css}">
+		<link rel="stylesheet" th:href="@{/vendors/base/vendor.bundle.base.css}">
+		<!-- endinject -->
+		<!-- plugin css for this page -->
+		<!-- End plugin css for this page -->
+		<!-- inject:css -->
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<!-- <link rel="stylesheet" href="/css/style2.css"> -->
+		<!-- endinject -->
+		<link rel="shortcut icon" th:href="@{/images/logo1.png}" />
+		<style>
+			.submenu {
+				display: flex!important;
+			}
+			
+			.menu-column {
+				flex: 1;
+				padding: 0 10px;
+			}
+			.mt-top{
+				margin-top: -30px!important;
+			}
+		</style>
+	</head>
+
+
+	<body>
+
+		<div th:fragment="header" class="navbar-custom">
+			<div class="horizontal-menu">
+				<nav class="navbar top-navbar col-lg-12 col-12 p-0">
+					<div class="container-fluid">
+						<div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+							<ul class="navbar-nav navbar-nav-left">
+								<li class="nav-item ms-0 me-5 d-lg-flex d-none"><a href="#"
+										class="nav-link horizontal-nav-left-menu"><i
+											class="mdi mdi-format-list-bulleted"></i></a></li>
+								<li class="nav-item dropdown"><a
+										class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+										id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+										<i class="mdi mdi-bell mx-0"></i> <span class="count bg-success">2</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+										aria-labelledby="notificationDropdown">
+										<p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+										<a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<div class="preview-icon bg-success">
+													<i class="mdi mdi-information mx-0"></i>
+												</div>
+											</div>
+											<div class="preview-item-content">
+												<h6 class="preview-subject font-weight-normal">Application
+													Error</h6>
+												<p class="font-weight-light small-text mb-0 text-muted">
+													Just now</p>
+											</div>
+										</a> <a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<div class="preview-icon bg-warning">
+													<i class="mdi mdi-settings mx-0"></i>
+												</div>
+											</div>
+											<div class="preview-item-content">
+												<h6 class="preview-subject font-weight-normal">Settings</h6>
+												<p class="font-weight-light small-text mb-0 text-muted">
+													Private message</p>
+											</div>
+										</a> <a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<div class="preview-icon bg-info">
+													<i class="mdi mdi-account-box mx-0"></i>
+												</div>
+											</div>
+											<div class="preview-item-content">
+												<h6 class="preview-subject font-weight-normal">Người mới</h6>
+												<p class="font-weight-light small-text mb-0 text-muted">
+													2 days ago</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown"><a
+										class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+										id="messageDropdown" href="#" data-bs-toggle="dropdown"> <i
+											class="mdi mdi-email mx-0"></i> <span class="count bg-primary">4</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+										aria-labelledby="messageDropdown">
+										<p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+										<a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<img src="" alt="image" class="profile-pic">
+											</div>
+											<div class="preview-item-content flex-grow">
+												<h6 class="preview-subject ellipsis font-weight-normal"></h6>
+												<p class="font-weight-light small-text text-muted mb-0">
+													The meeting is cancelled</p>
+											</div>
+										</a> <a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<img th:src="@{/images/faces/face2.jpg}" alt="image"
+													class="profile-pic">
+											</div>
+											<div class="preview-item-content flex-grow">
+												<h6 class="preview-subject ellipsis font-weight-normal">Tim
+													Cook</h6>
+												<p class="font-weight-light small-text text-muted mb-0">
+													New product launch</p>
+											</div>
+										</a> <a class="dropdown-item preview-item">
+											<div class="preview-thumbnail">
+												<img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+											</div>
+											<div class="preview-item-content flex-grow">
+												<h6 class="preview-subject ellipsis font-weight-normal">
+													Johnson</h6>
+												<p class="font-weight-light small-text text-muted mb-0">
+													Upcoming board meeting</p>
+											</div>
+										</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown"><a href="#" class="nav-link count-indicator "><i
+											class="mdi mdi-message-reply-text"></i></a></li>
+								<li class="nav-item nav-search d-none d-lg-block ms-3">
+
+									<!--	<div class="submenu">
+									<ul>
+										<li class="nav-item"><a class="nav-link"
+												th:href="@{/admin/daotao/linhvuc}">Lĩnh vực</a></li>
+										<li class="nav-item"><a class="nav-link"
+												th:href="@{/admin/nganh}">Ngành</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Chuyên Ngành</a></li>
+										<li class="nav-item"><a class="nav-link" th:href="@{/loaihocphan}">Loại HP</a></li>
+										<li class="nav-item"><a class="nav-link" th:href="@{/danhmuclhp}">Danh Mục Loại HP</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Danh Mục HP</a></li>
+										<li class="nav-item"><a class="nav-link" th:href="@{/mqhhocphan}">Mối Quan Hệ HP</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Định hướng CTDT</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Nội Dung Chương Trình</a></li>
+										<li class="nav-item"><a class="nav-link" th:href="@{/admin/daotao/chuongtrinh}">Chương Trình</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Khối Kiến Thức</a></li>
+										<li class="nav-item"><a class="nav-link" href="">Số hóa</a></li>
+
+									</ul> -->
+
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="search"> <i class="mdi mdi-magnify"></i>
+											</span>
+										</div>
+										<input type="text" class="form-control" placeholder="search" aria-label="search"
+											aria-describedby="search"> </div>
+
+								</li>
+
+
+							</ul>
+							<div
+								class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+								<a class="navbar-brand brand-logo" th:href="@{/admin}"><img th:src="@{/images/logo.png}"
+										alt="logo"></a> <a class="navbar-brand brand-logo-mini" th:href="@{/admin}"><img
+										th:src="@{/images/logo.png}" alt="logo"></a>
+							</div>
+							<ul class="navbar-nav navbar-nav-right">
+								<li class="nav-item dropdown  d-lg-flex d-none">
+									<button type="button" class="btn btn-inverse-primary btn-sm">Product
+									</button>
+								</li>
+								<li class="nav-item dropdown d-lg-flex d-none"><a
+										class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm"
+										id="nreportDropdown" href="#" data-bs-toggle="dropdown">
+										Reports </a>
+									<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+										aria-labelledby="nreportDropdown">
+										<p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
+										<a class="dropdown-item"> <i class="mdi mdi-file-pdf text-primary"></i> Pdf
+										</a> <a class="dropdown-item"> <i class="mdi mdi-file-excel text-primary"></i>
+											Exel
+										</a>
+									</div>
+								</li>
+								<li class="nav-item dropdown d-lg-flex d-none">
+									<button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
+								</li>
+								<li class="nav-item nav-profile dropdown"><a class="nav-link dropdown-toggle" href="#"
+										data-bs-toggle="dropdown" id="profileDropdown"> 
+										<span class="nav-profile-name">
+											<span th:text="${session.username}" class="account-user-name">Le Hieu</span>
+											<!--<span th:if="${session.roles.contains('ROLE_ADMIN')}" th:text="[Admin]" class="account-position"></span>-->
+										</span> 
+											<span class="online-status"></span>
+										<img th:src="@{/images/faces/login.png}" alt="image">
+									</a>
+									<div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+										aria-labelledby="profileDropdown">
+										<a class="dropdown-item"> <i class="mdi mdi-settings text-primary"></i> Settings
+										</a> 
+										<a class="dropdown-item" id="logoutLink">
+											<i class="mdi mdi-logout text-primary"></i>
+											<span >Logout</span>
+										</a>
+									</div>
+								</li>
+							</ul>
+							<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+								type="button" data-toggle="horizontal-menu-toggle">
+								<span class="mdi mdi-menu"></span>
+							</button>
+							
+				<script th:inline="javascript">
+				var logout = document.getElementById("logoutLink");
+				logout.addEventListener("click", function () {
+		            // Fetch data from the server
+		            fetch("/admin/login/logout", {
+			                method: "POST",
+			            })
+			            .then((response) => {
+			                // Check if the response status is 200 (OK) for a successful logout
+			                window.location.href = "/admin/login";
+			                sessionStorage.clear();
+			            })
+			            .catch((error) => {
+			                console.error("Logout error:", error);
+			            });
+				})
+
+    		</script>
+						</div>
+					</div>
+				</nav>
+				<nav class="bottom-navbar">
+					<div class="container">
+						<ul class="nav page-navigation">
+							<li class="nav-item"><a class="nav-link" th:href="@{/admin}"> <i
+										class="mdi mdi-file-document-box menu-icon mrg5"></i> <span>Trang
+										Chủ</span>
+								</a></li>
+							<!-- ---------Start menu CTDT--------- -->
+							<li class="nav-item"><a href="#" class="nav-link">
+									<div>
+										<span> <i class="mdi mdi-cube-outline menu-icon mrg5"></i>
+										</span> <span>CT Đào Tạo</span> <i class="menu-arrow"></i>
+									</div>
+								</a>
+								<div class="submenu" style="height: 255px!important;">
+									<div class="menu-column mt-top" style="margin-top: -25px!important;">
+										<ul>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/linhvuc}">Lĩnh vực</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/nganh}">Ngành</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/chuyennganh}">Chuyên	Ngành</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/loaihocphan}">Loại HP</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/khoaquanly}">Khoa Quản Lý</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/danhmuclhp}">Danh Mục Loại HP</a></li>
+										</ul>
+									</div>
+									<div class="menu-column mt-top" style="margin-top: -25px!important;">
+										<ul>
+												<li class="nav-item"><a class="nav-link" th:href="@{/admin/dmhp}">Danh Mục HP</a></li>	
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/mqhhocphan}">Mối Quan Hệ HP</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/dinhhuong}">Định hướng CTDT</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/ndct}">Nội Dung Chương Trình</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/lophocphan}">Lớp học phần</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/chuongtrinh}">Chương Trình</a></li>
+										</ul>
+										</div>
+									<div class="menu-column" style="margin-top: -25px!important;">
+										<ul>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/kkt}">Khối Kiến Thức</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/hptt}">Học phần thay thế</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/chucnang/dangkytinchi}">Đăng ký tín chỉ</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/chucnang/inbangdiem}">In bảng điểm</a></li>
+									<!--	<li class="nav-item"><a class="nav-link" th:href="@{/admin/hpkkt}">Học phần - Khối
+												kiến thức</a></li>  -->
+												<li class="nav-item"><a class="nav-link" th:href="@{/admin/sinhvien}">Sinh viên</a></li>
+											<li class="nav-item"><a class="nav-link" th:href="@{/admin/sohoagiayto}">Số hóa</a></li>
+										</ul>
+								</div>
+								</div>
+							</li>
+							<!-- ---------end CTDT---------- -->
+							<li class="nav-item"><a href="" class="nav-link"> <i
+										class="mdi mdi-chart-areaspline menu-icon mrg5"></i> <span>Giảng
+										Viên</span> <i class="menu-arrow"></i>
+								</a></li>
+
+							<li class="nav-item"><a href="" class="nav-link"> <i
+										class="mdi mdi-grid menu-icon mrg5"></i> <span>Môn Học</span> <i
+										class="menu-arrow"></i>
+								</a></li>
+							<li class="nav-item"><a href="" class="nav-link"> <i
+										class="mdi mdi-emoticon menu-icon mrg5"></i> <!-- class="menu-title" -->
+									<span>Phòng đào Tạo</span> <i class="menu-arrow"></i>
+								</a></li>
+							<li class="nav-item"><a href="#" class="nav-link"> <i
+										class="mdi mdi-codepen menu-icon mrg5"></i> <span>Sinh Viên</span>
+									<i class="menu-arrow"></i>
+								</a></li>
+							<li class="nav-item"><a th:href="@{/pages/charts/chartjs.html}" class="nav-link"> <i
+										class="mdi mdi-finance menu-icon mrg5"></i> <span>Thống
+										Kê</span> <i class="menu-arrow"></i>
+								</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+
+</html>

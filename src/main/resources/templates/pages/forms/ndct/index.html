@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Việt Hàn</title>
+<!-- base:css -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+<link rel="stylesheet"
+	th:href="@{/vendors/mdi/css/materialdesignicons.min.css}">
+<link rel="stylesheet" th:href="@{/vendors/base/vendor.bundle.base.css}">
+<!-- endinject -->
+
+<!-- plugin css for this page -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+	integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/ds.css}">
+
+<!-- <link rel="stylesheet" href="/css/style2.css"> -->
+<!-- endinject -->
+<link rel="shortcut icon" th:href="@{/images/logo1.png}" />
+<script th:inline="javascript">
+	function getDinhHuong(id_dh, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/dinhhuong/"+id_dh;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.ten_dinh_huong; // Thay vì data.majors.majorsName
+            console.log('ten_dh:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+</script>
+
+<script th:inline="javascript">
+	function getKKT(id_kkt, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/kkt/"+id_kkt;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.ten_khoi_kien_thuc; // Thay vì data.majors.majorsName
+            console.log('ten_kkt:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+	function getCT(id_ct, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/chuongtrinh/"+id_ct;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.ten_chuong_trinh; // Thay vì data.majors.majorsName
+            console.log('ten_chuong_trinh:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+</script>
+
+<script th:inline="javascript">
+	function getHptq(mahp, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/mqhhp/get/"+mahp;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.tien_quyet; // Thay vì data.majors.majorsName
+            console.log('tien_quyet:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+	function getHpht(mahp, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/mqhhp/get/"+mahp;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.hoc_truoc; // Thay vì data.majors.majorsName
+            console.log('hoc_truoc:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+	function getHpsh(mahp, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/mqhhp/get/"+mahp;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.song_hanh; // Thay vì data.majors.majorsName
+            console.log('song_hanh:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+</script>
+
+<script th:inline="javascript">
+	function gethptt(id_hptt, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/hptt/"+id_hptt;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.hp_thaythe; // Thay vì data.majors.majorsName
+            console.log('hp_thaythe:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+</script>
+
+<script th:inline="javascript">
+	function getdmLoaiHocphan(id_dmlhp, callback) {
+	    var api = "http://222.255.130.100:7070/ctdt/api/dmloaihp/get/"+id_dmlhp;
+	    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            var name = data.ten_danh_muc_lhp; // Thay vì data.majors.majorsName
+            console.log('ten_dmlhp:', name);
+
+            // Gọi callback với tên majors
+            callback(name);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            // Gọi callback với giá trị mặc định hoặc xử lý lỗi nếu cần
+            callback('');
+        });
+	}
+
+</script>
+<script th:inline="javascript">
+
+$(document).ready(function() {
+ 	     /* 	 $('#mhp, #thp, #idlhp, #iddmlhp').change(function() {
+     		    var mhp = $('#mhp').val();
+     		    var thp = $('#thp').val();
+     		    var idlhp = $('#idlhp').val();
+     		   var iddmlhp = $('#iddmlhp').val();
+     		    
+     	
+     		    searchDataFromAPI(mhp, thp, idlhp, iddmlhp);
+		  });*/
+ 	      	searchDataFromAPI()
+	});
+    	function searchDataFromAPI() {
+        	var apiURL = 'http://222.255.130.100:7070/ctdt/api/ndct' ;
+        	
+    		/*if(mhp!=''&&thp!=''&&idlhp!=''&&iddmlhp!='')
+         		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp +'&thp=' + thp + '&idlhp=' + idlhp + '&iddmlhp=' + iddmlhp ;
+    		else if(mhp!=''&&thp!=''&&iddmlhp!='')
+     	  		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp +'&thp=' + thp + '&iddmlhp=' + iddmlhp ;
+    		 else if(thp!=''&&idlhp!=''&&iddmlhp!='')
+     	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?thp=' + thp + '&idlhp=' + idlhp + '&iddmlhp=' + iddmlhp ;
+    		 else if(mhp!=''&&idlhp!=''&&iddmlhp!='')
+     	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp + '&idlhp=' + idlhp + '&iddmlhp=' + iddmlhp ;
+    		 else if(mhp!=''&&thp!=''&&idlhp!='')
+      	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp + '&idlhp=' + idlhp +'&thp=' + thp;
+    		 else if(mhp!=''&&thp!='')
+     	  		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp +'&thp=' + thp ;
+    		 else if(thp!=''&&idlhp!='')
+     	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?thp=' + thp + '&idlhp=' + idlhp ;
+    		 else if(mhp!=''&&idlhp!='')
+     	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp + '&idlhp=' + idlhp ;
+    		 else if(iddmlhp!=''&&idlhp!='')
+      	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?iddmlhp='+ iddmlhp + '&idlhp=' + idlhp ;
+    		 else if(iddmlhp!=''&&mhp!='')
+       	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?iddmlhp='+ iddmlhp + '&mhp=' + mhp ;
+    		 else if(iddmlhp!=''&&thp!='')
+       	  		var apiURL ='http://222.255.130.100:7070/ctdt/dmhp/searchByKey?iddmlhp='+ iddmlhp + '&thp=' + thp ;
+    		 else if(mhp!='')
+    	  		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?mhp='+ mhp  ;
+        	else if(thp!='')
+        		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?thp=' + thp  ;
+        	else if(idlhp!='')
+        		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?idlhp=' + idlhp;
+        	else if(iddmlhp!='')
+        		var apiURL = 'http://222.255.130.100:7070/ctdt/dmhp/searchByKey?iddmlhp=' + iddmlhp;*/
+        	
+    		
+    	  $.ajax({
+    		    type: 'GET',
+    		    url: apiURL,
+    		    success: function(response) {
+        		    console.log(apiURL);
+    		    	  var searchResults = $('#searchResults');
+    		          // Xóa nội dung hiện tại trong tbody
+    		          searchResults.empty();
+    		          var headerRow = $('<tr id="tbl-first-row">');
+    		          headerRow.append($('<td>#</td>'));
+    		          headerRow.append($('<td>Mã học phần</td>'));
+    		          headerRow.append($('<td>Định Hướng</td>'));
+    		          headerRow.append($('<td>Chương trình</td>'));
+    		          headerRow.append($('<td>Khối kiến thức</td>'));
+    		          headerRow.append($('<td>Danh mục loại học phần</td>'));
+    		          headerRow.append($('<td>Học phần tiên quyết</td>'));
+    		          headerRow.append($('<td>Học phần học trước</td>'));
+    		          headerRow.append($('<td>Học phần song song</td>'));
+    		          headerRow.append($('<td>Học phần thay thế</td>'));
+    		          headerRow.append($('<td>Học kỳ dự kiến</td>'));
+    		          headerRow.append($('<td>Trạng thái</td>'));
+    		          headerRow.append($('<td>Hành động</td>'));
+    		          searchResults.append(headerRow);
+    		          // Thêm kết quả tìm kiếm vào tbody
+    		          response.forEach(function(result, index) {
+    		            var row = $('<tr>');
+    		            row.append($('<td>').text(index + 1));
+    		            row.append($('<td>').text(result.ma_hoc_phan));
+    		            getDinhHuong(result.id_dinh_huong, function(dh) {
+    		               var dhuong = $('<td>').text(dh);
+    		               row.append(dhuong);
+    		               getCT(result.id_chuongtrinh, function(ct){
+    		            	   var ctrinh = $('<td>').text(ct);
+        		               row.append(ctrinh);
+        		               getKKT(result.id_ktt, function(kkt){
+            		               var kkthuc = $('<td>').text(kkt);
+            		               row.append(kkt);
+            		               getdmLoaiHocphan(result.id_danh_muc_lhp , function(tendmlhp) {
+	   	        		               	var dmlhp = $('<td>').text(tendmlhp);
+	   	        		             console.log('dmlhp:', result.id_danh_muc_lhp);
+	   	        		               	row.append(dmlhp);
+	   	        		             	getHptq(result.id_mqh, function(hptq) {
+		   	        		               	var hp_tq = $('<td>').text(hptq);
+		   	        		               	row.append(hp_tq);
+		   	        		             	getHpht(result.id_mqh, function(hpht) {
+			   	        		               	var hp_ht = $('<td>').text(hpht);
+			   	        		               	row.append(hp_ht);
+			   	        		             	getHpsh(result.id_mqh, function(hpsh) {
+				   	        		               	var hp_sh = $('<td>').text(hpsh);
+				   	        		               	row.append(hp_sh);
+				   	        		             	gethptt(result.id_hptt, function(hptt) {
+					   	        		               	var hp_tt = $('<td>').text(hptt);
+					   	        		               	row.append(hp_tt);
+					   	        		             	row.append($('<td>').text(result.hoc_ky_du_kien));
+					   		        		            row.append($('<td>').text(result.stt?"Hiện":"Ẩn"));
+					   		        		            row.append($('<td>').html('<a href="/admin/ndct/update/' + result.id + '"><i style="color: #0BCE97;" class="fa-solid fa-pen-to-square fa-2xl"></i></a>'));
+				   	        		             	});
+			   	        		             	});
+				   	        		         });
+	   	        		             	});
+   	    		               		});
+            		          }); 
+    		               });
+    		            });
+    		            console.log('a');
+    		            searchResults.append(row);
+    		          });
+    		      },
+    		    	 
+    		    error: function(xhr, status, error) {
+    		      // Xử lý lỗi (nếu có) ở đây
+    		    }
+    		  });
+    	}
+ 	    
+</script>
+
+</head>
+
+<body>
+
+	<div class="container-scroller">
+
+		<div th:include="partials/navbar :: header" class="navbar-custom"></div>
+		<!-- partial -->
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<div class="main-panel">
+				<div class="content-wrapper">
+
+					<div class="row align-items-center">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<h5 class="card-title">
+									Quản lý nội dung chương trình
+								</h5>
+								<div th:if="${message != null && message.status == true}"
+									class="mt-2 m-auto w-50 px-4 py-2 rounded-3 text-white text-center"
+									style="background-color: #0BCE97">
+									<span th:text="${message.message}"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div
+								class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+								<div>
+									<!-- <ul class="nav nav-pills">
+                        <li class="nav-item">
+                        <a aria-current="page" href="#" class="router-link-active router-link-exact-active nav-link active" data-bs-toggle="tooltip" data-bs-placement="top" title data-bs-original-title="List" aria-label="List">
+                        <i class="bx bx-list-ul"></i>
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title data-bs-original-title="Grid" aria-label="Grid"><i class="bx bx-grid-alt"></i></a>
+                        </li>
+                        </ul> -->
+								</div>
+								<div>
+									<a th:href="@{/admin/ndct/create}" data-bs-toggle=""
+										data-bs-target=".add-new" class="btn btn-primary"><i
+										class="bx bx-plus me-1"></i> Add New</a>
+								</div>
+								<div>
+
+									<form id="search-form"
+										style="overflow: visible; max-width: 440px; padding-left: 40px;"
+										method="get" action="">
+										<div class="input-group">
+
+											<input type="Text" class="form-control" name="mhp" id="mhp"
+												placeholder="Nhập mã học phần"> <input type="Text"
+												class="form-control" name="thp" id="thp"
+												placeholder="Nhập tên học phần"><select class="form-select" name="iddmlhp" id="iddmlhp">
+												<option value="">Danh mục loại học phần</option>
+												<option th:each="dmlhp : ${DMLHP}" th:value="${dmlhp.id}"
+													th:text="${dmlhp.ten_danh_muc_lhp}"></option>
+											</select>
+											<!--  <input type="hidden" id="cookieValue"
+												th:value="${cookieValue}">-->
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class>
+									<div class="table-responsive">
+										<table
+											class="table project-list-table table-nowrap align-middle table-borderless">
+											<tbody id="searchResults">
+
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row g-0 align-items-center pb-4">
+							<div class="col-sm-6">
+								<div>
+									<p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="float-sm-end">
+									<ul class="pagination mb-sm-0">
+										<li class="page-item disabled">
+											<a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+										</li>
+										<li class="page-item active"><a href="#" class="page-link">1</a></li>
+										<li class="page-item"><a href="#" class="page-link">2</a></li>
+										<li class="page-item"><a href="#" class="page-link">3</a></li>
+										<li class="page-item"><a href="#" class="page-link">4</a></li>
+										<li class="page-item"><a href="#" class="page-link">5</a></li>
+										<li class="page-item">
+											<a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div> -->
+
+
+					</div>
+					<!-- content-wrapper ends -->
+
+
+
+					<!-- partial:partials/_footer.html -->
+					<div th:include="partials/footer :: footer" class="footer"></div>
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
+			</div>
+			<!-- page-body-wrapper ends -->
+		</div>
+		<!-- container-scroller -->
+
+		<!-- base:js -->
+		<script th:src="@{/vendors/base/vendor.bundle.base.js}"></script>
+		<!-- endinject -->
+		<!-- Plugin js for this page-->
+		<!-- End plugin js for this page-->
+		<!-- inject:js -->
+		<script th:src="@{/js/template.js}"></script>
+		<!-- endinject -->
+		<!-- plugin js for this page -->
+		<!-- End plugin js for this page -->
+		<script th:src="@{/vendors/chart.js/Chart.min.js}"></script>
+		<script th:src="@{/vendors/progressbar.js/progressbar.min.js}"></script>
+		<script
+			th:src="@{/vendors/chartjs-plugin-datalabels/chartjs-plugin-datalabels.js}"></script>
+		<script th:src="@{/vendors/justgage/raphael-2.1.4.min.js}"></script>
+		<script th:src="@{/vendors/justgage/justgage.js}"></script>
+		<script th:src="@{/js/jquery.cookie.js}" type="text/javascript"></script>
+		<!-- Custom js for this page-->
+		<script th:src="@{/js/dashboard.js}"></script>
+		<!-- End custom js for this page-->
+</body>
+
+</html>
